@@ -1,0 +1,89 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+}
+
+.thumbnail img.pull-right {
+  width: 50px;
+}
+
+.addbutton {
+  color: green;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.editbutton {
+  color: darkgrey;
+  float: right;
+  cursor: pointer;
+}
+
+.deletebutton {
+  color: red;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.errormessage {
+  color: red;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.thinborder {
+  border: darkgray;
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+}
+
+.rightborder {
+  border: darkgray;
+  border-right-style: solid;
+  border-right-width: 3px;
+}
+
+.modalwindow {
+  padding: 10px;
+}
+
+.spinner
+{
+  animation:spin 3s linear infinite;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-webkit-keyframes rotate {from {-webkit-transform:rotate(0deg);} to {-webkit-transform:rotate(360deg);} }
+
+
+.foodcontainer {
+  display: flex;
+  overflow: hidden;
+  height: 110vh;
+  margin-top: -100px;
+  padding-top: 100px;
+  position: relative;
+  width: 100%;
+}
+
+.foodcolumn {
+  overflow: auto;
+  height: auto;
+  padding: .5rem;
+  -ms-overflow-style: scrollbar;
+}

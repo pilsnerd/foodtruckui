@@ -1,0 +1,19 @@
+<div class="modalwindow">
+    Date: <input type="text" class="form-control" ng-model="ctrl.editFoodItem.TempDate">
+    <br/>
+    Food Name: <input type="text" class="form-control" ng-model="ctrl.editFoodItem.FoodName">
+    <br/>
+    Person: <input type="text" class="form-control" ng-model="ctrl.editFoodItem.PersonName">
+    <br/>
+    Rating: <div class="input-group">
+        <span class="input-group-addon" ng-click="ctrl.changeRatingValue(-1)">-</span>
+        <input type="number" min="0" max="10" class="form-control" ng-model="ctrl.editFoodItem.Rating">
+        <span class="input-group-addon" ng-click="ctrl.changeRatingValue(1)">+</span>
+    </div>
+    <br/>
+    Comments: <textarea class="form-control" ng-model="ctrl.editFoodItem.Comments"></textarea>
+    <br/>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.saveFoodItem()">save</button>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.cancelEdit()">cancel</button>
+    <span class="errormessage">{{ctrl.statusMessage}}</span>
+</div>

@@ -1,0 +1,9 @@
+<div class="modalwindow">
+    Truck Name: <input type="text" class="form-control" ng-model="ctrl.editTruck.Name">
+    <br/>
+    Image URL: <input type="text" class="form-control" ng-model="ctrl.editTruck.ImageUrl">
+    <br/>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.saveTruck()">save</button>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.cancelEdit()">cancel</button>
+    <span class="errormessage">{{ctrl.statusMessage}}</span>
+</div>

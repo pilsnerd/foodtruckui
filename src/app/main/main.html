@@ -1,0 +1,63 @@
+
+<div class="container">
+
+  <div class="row" ng-show="main.loadingTrucks"><span class="spinner"><span class="glyphicon glyphicon-refresh"></span></span></div>
+  <div class="foodcontainer">
+
+    <div class="foodcolumn rightborder">
+      <h1>Food Trucks <span class="glyphicon glyphicon-plus-sign addbutton" ng-click="main.addTruck()" ng-hide="main.addingTruck"></span></h1>
+      <input class="form-control ng-isolate-scope ng-valid ng-dirty" type="text" placeholder="Filter" ng-model="truckFilterText" ng-change="main.refreshItems(0)" focus-me="true">
+      Sort: <button class="label label-default" ng-click="main.truckSort='-AverageRating'">rating</button><button class="label label-default" ng-click="main.truckSort='Name'">name</button>
+      <div ng-repeat="truck in main.trucks | orderBy : main.truckSort | filter: truckFilterText">
+        <table class="table" ng-click="main.refreshItems(truck.TruckId)" ng-style="main.selectedTruckId === truck.TruckId && {'background-color': 'red'}">
+          <tr>
+            <td rowspan="2">
+              <img height="120px" src="{{truck.ImageUrl}}">
+            </td>
+            <td>
+              <span class="glyphicon glyphicon-pencil editbutton" ng-click="main.editTruck(truck)"></span>
+              <h2 class="clickable">{{truck.Name}}</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="float: right;">Average Rating: {{truck.AverageRating}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!--<div class="col-md-1"></div>-->
+
+    <div class="foodcolumn">
+
+      <h2 ng-show="main.selectedTruckId > 0">Food Items <span class="glyphicon glyphicon-plus-sign addbutton" ng-click="main.addFoodItem()" ng-hide="main.addingItem || main.selectedTruckId == 0"></span></h2>
+      <span class="spinner" ng-show="main.loadingItems"><span class="glyphicon glyphicon-refresh"></span></span>
+      <table class="table">
+        <tr ng-repeat="item in main.items | orderBy : '-Date'">
+          <td>
+            <span class="glyphicon glyphicon-pencil editbutton" ng-click="main.editFoodItem(item)"></span>
+            {{item.PersonName}}, {{item.Date | jsonDate : shortDate }}
+            <br/>
+            <span style="font-weight: bold;">{{item.FoodName}}</span>
+            <br/>
+            <span style="font-weight: bold;">Rating: {{item.Rating}}</span>
+            <br/>
+            {{item.Comments}}
+          </td>
+          <td>
+            <span class="glyphicon glyphicon-remove-sign deletebutton" title="Delete" ng-click="main.deleteFoodItem(item.FoodItemId)"></span>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    {{main.statusMessage}}
+  </div>
+
+</div>
